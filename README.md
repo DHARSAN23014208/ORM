@@ -4,9 +4,6 @@
 ## AIM
 To develop a Django application to store and retrieve data from Movies Database using Object Relational Mapping(ORM).
 
-## ENTITY RELATIONSHIP DIAGRAM
-
-
 
 ## DESIGN STEPS
 
@@ -23,12 +20,30 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
-
-
-
+models.py
+```
+from django.db import models
+from django.contrib import admin
+class Employee (models.Model):
+    eid=models.IntegerField(primary_key=True)
+    name=models.CharField(max_length=100)
+    salary=models.IntegerField()
+    age=models.IntegerField()
+    email=models.EmailField()
+ 
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('eid','name','salary','age','email')
+```
+admin.py
+```
+from django.contrib import admin
+from .models import Employee,EmployeeAdmin
+admin.site.register(Employee,EmployeeAdmin)
+```
 ## OUTPUT
 
-Include the screenshot of your admin page.
+![Screenshot 2025-04-09 225818](https://github.com/user-attachments/assets/72402c70-a7f4-444f-8771-1230b731abe5)
+
 
 
 ## RESULT
